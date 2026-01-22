@@ -1,0 +1,376 @@
+/* every element size and spacing */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
+
+/* website body and background */
+html, body 
+{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    
+}
+
+/* all links */
+a 
+{
+    color: white;
+}
+
+/* top section - header + nav bar */
+.top-section, .top-section p
+{
+    background-color: #19647e;
+    color: white;
+}
+
+/* header */
+header, p
+{
+    display: flex;
+    color: white;
+    text-align: center;
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+    padding: 0%;
+    margin: 0%;
+}
+
+/* nav bar (logo + nav-links) */
+nav
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* logo left, links right */
+    padding: 10px 20px;
+}
+
+/* nav buttons */
+.nav-buttons
+{
+    display: flex;
+    align-items: center;
+    gap: 30px; 
+}
+
+/* nav links (logo + links) */
+nav a 
+{
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 20px;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    transition: 0.1s linear;
+}
+nav a:hover 
+{
+    color: aqua;
+    opacity: 1;
+}
+
+/* VIA logo */
+.logo 
+{
+    display: flex;
+    align-items: center;
+}
+.logo img {
+    display: block;
+    height: 65px; /* logo size (height) */
+    width: auto; /* logo size (width) */
+}
+
+
+/* footer */
+footer 
+{
+    padding: 30px 20px;
+    background-color: #19647e;
+}
+/* footer text */
+footer p
+{
+    text-align: center;
+    color: white;
+    opacity: 0.9;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Main layout */
+.projects {
+    flex: 1 1 50%;
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+/* "PORTFOLIO", "ABOUT ME", "CV" title */
+.title
+{
+    display: flex;
+    justify-content: center;
+    padding: 2rem 1rem;
+    border-bottom: 2px solid #19647e;
+    margin-bottom: 40px;
+    font-size: 50px;
+    font-weight: 200;
+    background-color: white;
+    color: #19647e;
+    text-align: center;
+    cursor: default;
+}
+
+/* main + top text */
+.projects h2 {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 200;
+    color: #19647e;
+    cursor: default;
+}
+.projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.main a, .main p
+{
+    color: #19647e;
+    text-decoration: none;
+    text-align: center;
+}
+.project-card img
+{
+    opacity: 1;
+    transition: 0.1s linear;
+    border: 2px solid #19647e;
+    border-radius: 20px;
+}
+.project-card img:hover
+{
+    opacity: 0.8;
+}
+
+.bottom
+{
+    padding: 2rem 1rem;
+    border-top: 2px solid #19647e;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* bottom section title "Software Engineer // Web Developer" */
+.bottom h1 {
+    text-align: center;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #19647e;
+    cursor: default;
+}
+.bottom h2 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 200;
+    color: #19647e;
+    cursor: default;
+}
+
+/* Projects list in left column */
+.projects-list {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* 3 columns */
+    gap: 5rem;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.project-title {
+    font-weight: bold;
+    color: #19647e;
+    text-align: center;
+}
+
+.projects-list img.project-image {
+    max-width: 500px; /* slightly larger inside list */
+    height: auto; /* maintain aspect ratio */
+}
+
+button {
+    background-color: #19647e;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.2s linear;
+}
+button:hover {
+    background-color: white;
+    color: #19647e;
+}
+
+.about-me-content {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #19647e;
+    text-align: center;
+    margin: 50px;
+}
+
+.icon-label {
+    font-weight: bold;
+    font-size: 14px;
+    color: #19647e;
+    text-align: center;
+}
+
+.svg-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding-top: 20px;
+    margin-top: 50px;
+}
+.svg-container svg {
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    transition: 0.1s linear;
+}
+svg:hover {
+    opacity: 0.7;
+    transform: translateY(-10px);
+}
+.contact, a, p{
+    text-align: center;
+    color:#19647e;
+}
+
+.work-experience, .work-experience h3, .work-experience p, .work-experience ul, .work-experience li {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 0.5rem;
+    color:#19647e
+}
+.work-experience h3 {
+    font-size: 20px;
+    font-weight: bold;
+}
+.work-experience {
+    margin-top: 20px;
+}
+
+/* Responsive: Phones */
+@media (max-width: 700px) {
+    .main-content {
+        flex-direction: column;
+    }
+    .main-content .left,
+    .main-content .right 
+    {
+        padding: 1rem;
+    }
+
+    /* Make nav stack: header stays top, then logo, then links in a centered row */
+    nav 
+    {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 8px 12px;
+    }
+
+    /* Logo centered and slightly smaller on mobile */
+    .logo 
+    {
+        order: 0;
+        padding: 0;
+        margin-bottom: 0;
+    }
+    .logo img {
+        height: 80px;
+        width: auto;
+    }
+
+    /* Keep nav links side-by-side but centered under the logo */
+    .nav-links 
+    {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        text-align: center;
+        gap: 0.5rem;
+        width: 100%;
+    }
+    nav a 
+    {
+        font-size: 20px;;
+        padding: 0.35rem 0.6rem;
+    }
+    /* Make all nav links the same width on small screens */
+    .nav-buttons a {
+        /* fixed base width for each link; adjust as needed */
+        flex: 0 0 110px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-sizing: border-box;
+    }
+
+    /* Projects list */
+    .projects-list
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .project-card {
+        flex: 1 1 300px; /* Allow cards to grow and shrink, with a base width of 300px */
+        display: flex;
+        text-align: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+}
+
+/* Responsive: Tablets */
+@media (max-width: 1725px) 
+{
+    .projects-list 
+    {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+}

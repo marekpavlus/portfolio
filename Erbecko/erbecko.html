@@ -1,0 +1,553 @@
+<!-- Toto je Erbečková web stránka-->
+<!DOCTYPE html>
+<html lang="sk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erbecko Digital Marketing</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+}
+        body {
+            background-color: rgb(0, 0, 0);
+            background-image: none;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: background 0.4s;
+            overflow-x: hidden;
+        }
+        body.light-mode {
+            background-color: #fff;
+            background-image: none;
+            color: #eb8500;    
+        }
+        body.light-mode h1 {
+            color: #eb8500;
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: color 0.3s ease-in-out;
+        }
+        body.light-mode h1:hover {
+            color: rgba(0,0,0,0.7);
+            cursor: default;
+        }
+        .theme-toggle {
+            color: #fff;
+            background: rgba(0,0,0,0.5);
+            padding: 6px 14px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s;
+            cursor: pointer;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+            display: flex;
+            align-items: center;
+            border: none;
+            height: 32px; /* rovnaká výška pre všetky */
+            width: 48px; /* minimálna šírka pre konzistenciu */
+            box-sizing: border-box;
+            justify-content: center;
+            vertical-align: middle;
+            margin-top: 0;
+        }
+        .theme-toggle:focus {
+            outline: 2px solid #eb8500;
+        }
+        .theme-toggle .icon {
+            pointer-events: none;
+        }
+        .theme-toggle img {
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            vertical-align: middle;
+            pointer-events: none;
+        }
+        .menu-bar {
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            z-index: 200;
+        }
+        .menu-icon {
+            width: 36px;
+            height: 36px;
+            background: rgba(0,0,0);
+            border: none;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .menu-icon:hover {
+            background: #eb8500;
+        }
+        .menu-icon span {
+            display: block;
+            width: 24px;
+            height: 3px;
+            background: #fff;
+            margin: 4px 0;
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+        .side-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 0;
+            background: rgba(20,20,20,0.7);
+            overflow: hidden;
+            transition: height 0.35s cubic-bezier(.4,0,.2,1), padding 0.35s cubic-bezier(.4,0,.2,1);
+            z-index: 300;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            align-items: flex-start;
+            padding: 0 20px 0 30px;
+}
+        body.light-mode .side-menu a {
+            color: #eb8500;
+}
+         body.light-mode .side-menu a:hover {
+            color: #222;
+}
+        .side-menu.open {
+            height: 220px;
+            padding: 40px 20px 20px 30px;
+}
+        .side-menu a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 8px 0;
+            transition: color 0.2s;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+            font-weight: 400;
+        }
+        .side-menu a:hover {
+            color: #eb8500;
+        }
+        .side-menu .close-btn {
+            position: absolute;
+            top: 12px;
+            right: 4%;
+            width: auto;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .language-switcher {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            z-index: 100;
+            display: flex;
+            gap: 10px;
+        }
+        .language-switcher a {
+            color: #fff;
+            padding: 6px 14px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s;
+            cursor: pointer;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+            display: flex;
+            align-items: center;
+            border: none;
+            height: 32px;
+            min-width: 48px;
+            box-sizing: border-box;
+            justify-content: center;
+        }
+        .language-switcher a:hover {
+            background: #eb8500;
+            color: #fff;
+        }
+        body.light-mode .language-switcher a, body.light-mode .theme-toggle {
+            background: #fff;
+            color: #eb8500;
+        }
+        body.light-mode .language-switcher a:hover, body.light-mode .theme-toggle:hover {
+            background: #eb8500;
+            color: #fff;
+        }
+        
+        body.light-mode .contact-section {
+            background-color: transparent;
+        }
+        body.light-mode .contact-section h2, body.light-mode .contact-info p {
+            color: #222;
+        }
+        body.light-mode .contact-section h2:hover {
+            color: #eb8500;
+        }
+        .logo-link {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: block;
+        }
+        .center-buttons {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 16px;
+        }
+        button {
+            background-color: #dddddd;
+            border: none;
+            color: rgb(0, 0, 0);
+            padding: 16px 16px;
+            font-size: 16px;
+            margin: 4px 2px;
+            transition: 0.4s;
+            width: 180px;
+            cursor: pointer;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+            font-weight: 500;
+            border-radius: 50px;
+        }
+        button:hover {
+            background-color: #eb8500;
+            color: white;
+        }
+        body.light-mode button {
+            background-color: #eb8500;
+            color: #fff;
+        }
+        body.light-mode button:hover {
+            background-color: #222;
+            color: #eb8500;
+        }
+        h1 {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgba(255, 255, 255, 0.877);
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: color 0.3s ease-in-out;
+        }
+        h1:hover {
+            color: #eb8500;
+            cursor: default;
+        }
+        h2 {
+            position: absolute;
+            bottom: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgba(255, 255, 255, 0.877);
+            text-align: left;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            width: auto;
+            font-weight: 600;
+        }
+        p {
+            position: absolute;
+            bottom: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgba(255, 255, 255, 0.877);
+            text-align: left;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .contact-section {
+            position: absolute;
+            bottom: 0%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: transparent;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            
+        }
+        .contact-section h2 {
+            color: #eb8500;
+            margin-bottom: 12px;
+            position: static;
+            transform: none;
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+            transition: color 0.3s ease-in-out;
+        }
+        .contact-section h2:hover {
+            color: #fff;
+            cursor: default;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+        }
+        .contact-info p {
+            color: #eb8500;
+            margin: 6px 0;
+            position: static;
+            transform: none;
+            text-align: left;
+        }
+        .contact-section a {
+            background: none !important;
+            color: #fff;
+            padding: 0;
+            border: none;
+            box-shadow: none;
+            text-decoration: underline;
+            transition: none;
+            text-decoration: none;
+        }
+        body.light-mode .contact-section a {
+            color: #eb8500;
+            background: none !important;
+        }
+        body.light-mode .contact-section a:hover {
+            color: #222;
+        }
+
+        footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-color: #111;
+            padding: 40px 0;
+        }
+    </style>
+</head>
+<body>
+   <!--<h1>Erbecko Digital Marketing</h1>-->
+       <!-- Menu bar -->
+   <div class="menu-bar">
+        <button class="menu-icon" onclick="document.querySelector('.side-menu').classList.add('open')">
+            <img src="icons/menu_dark.png" alt="Menu Icon" style="width: 24px; height: 24px;">
+        </button>
+    </div>
+    <!-- Side menu -->
+    <nav class="side-menu">
+    <button class="close-btn" 
+            onclick="document.querySelector('.side-menu').classList.remove('open')">&times;</button>
+    
+    <a href="erbecko.html">
+        <img class="menu-icon-img"
+             src="icons/home_light.png"
+             data-dark-src="icons/home_light.png"
+             data-light-src="icons/home.png"
+             alt="Domov" 
+             style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">Domov
+    </a>
+
+    <a href="https://www.erbecko.sk/" target="_blank">
+        <img class="menu-icon-img"
+             src="icons/website_light.png"
+             data-dark-src="icons/website_light.png"
+             data-light-src="icons/website.png"
+             alt="Web"
+             style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">Web
+    </a>
+
+    <a href="#kontakt">
+        <img class="menu-icon-img"
+             src="icons/link_light.png"
+             data-dark-src="icons/link_light.png"
+             data-light-src="icons/link.png"
+             alt="Kontakt"
+             style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">Kontakt
+    </a>
+</nav>
+
+    <div class="language-switcher">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark/Light Mode">
+        <img id="themeIcon" 
+             src="icons/dark_mode_light.png" 
+             data-dark="icons/dark_mode_light.png"
+             data-light="icons/light_mode_dark.png" 
+             alt="Dark/Light Mode">
+    </button>
+    <a href="?lang=sk"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Flag_of_Slovakia.svg/250px-Flag_of_Slovakia.svg.png"
+       alt="Slovak Flag"
+       style="width: 20px; height: 14px; vertical-align: middle; margin-right: 6px;">SK</a>
+    <a href="?lang=en"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/960px-Flag_of_the_United_States.svg.png"
+       alt="English Flag"
+       style="width: 20px; height: 14px; vertical-align: middle; margin-right: 6px;">EN</a>
+</div>
+
+    <a class="logo-link" href="https://www.erbecko.sk/">
+    <img id="erbeckoLogo"
+         src="icons/erbecko_dark.png"
+         data-dark="icons/erbecko_dark.png"
+         data-light="icons/erbecko_light.png"
+         alt="Erbecko Logo"
+         width="400"
+         style="opacity: 0.9;">
+    </a>
+
+    <div class="center-buttons">
+        
+        <a href="erbecko.html">
+        <button>
+            <img class="button-icon"
+                 src="icons/home_black.png"
+                 data-dark-src="icons/home_black.png"
+                 data-light-src="icons/home_light.png"
+                 alt="Domov"
+                 style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">Domov
+        </button>
+    </a>
+
+    <a href="https://www.erbecko.sk/" target="_blank">
+        <button>
+            <img class="button-icon"
+                 src="icons/website_dark.png"
+                 data-dark-src="icons/website_dark.png"
+                 data-light-src="icons/website_light.png"
+                 alt="Web"
+                 style="width: 20px; height: 20px; vertical-align: middle; margin-left: 8px;">Web
+        </button>
+    </a>
+
+    <a href="erbecko.html">
+        <button>
+            <img class="button-icon"
+                 src="icons/handshake_dark.png"
+                 data-dark-src="icons/handshake_dark.png"
+                 data-light-src="icons/handshake_light.png"
+                 alt="Spolupráce"
+                 style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;">Spolupráce
+        </button>
+    </a>
+</div>
+
+    <h1>Vítajte na stránke Erbecko Digital Marketing</h1>
+
+    <bottom>
+        <div class="contact-section">
+        <h2>Kontakt:</h2>
+        <div class="contact-info">
+            <p>
+    <img class="contact-icon"
+         src="icons/website.png"
+         data-dark="icons/website.png"
+         data-light="icons/website_dark.png"
+         alt="Web"
+         style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;">
+    <strong>Web:</strong> <a href="https://www.erbecko.sk/"><i>www.erbecko.sk</i></a>
+</p>
+<p>
+    <img class="contact-icon"
+         src="icons/mail.png"
+         data-dark="icons/mail.png"
+         data-light="icons/mail_dark.png"
+         alt="Email"
+         style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;">
+    <strong>Email:</strong> <a href="mailto:info@erbecko.sk"><i>info@erbecko.sk</i></a>
+</p>
+<p>
+    <img class="contact-icon"
+         src="icons/phone.png"
+         data-dark="icons/phone.png"
+         data-light="icons/phone_dark.png"
+         alt="Telefón"
+         style="width: 16px; height: 16px; vertical-align: middle; margin-right: 6px;">
+    <strong>Telefón:</strong> <a href="tel:+421123456789"><i>+421 123 456 789</i></a>
+</p>
+<p>
+    
+        </div>
+    </div>
+    </bottom>
+
+    <script>
+        // Zatvorenie menu kliknutím mimo menu
+        document.addEventListener('click', function(e) {
+            const menu = document.querySelector('.side-menu');
+            const icon = document.querySelector('.menu-icon');
+            if (menu.classList.contains('open') && !menu.contains(e.target) && !icon.contains(e.target)) {
+                menu.classList.remove('open');
+            }
+        });
+        
+         // Prepínač svetlý/tmavý režim + výmena loga
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = document.getElementById('themeIcon');
+        const erbeckoLogo = document.getElementById('erbeckoLogo');
+        const contactIcons = document.querySelectorAll('.contact-icon');
+        const buttonIcons = document.querySelectorAll('.center-buttons .button-icon');
+        const menuIcons = document.querySelectorAll('.menu-icon-img'); // Vyberáme nové ikony z menu
+
+themeToggle.addEventListener('click', function() {
+    document.body.classList.toggle('light-mode');
+
+    if (document.body.classList.contains('light-mode')) {
+        themeIcon.src = themeIcon.getAttribute('data-light');
+        erbeckoLogo.src = erbeckoLogo.getAttribute('data-light');
+
+        contactIcons.forEach(icon => {
+            icon.src = icon.getAttribute('data-light');
+        });
+
+        buttonIcons.forEach(icon => {
+            icon.src = icon.getAttribute('data-light-src');
+        });
+        
+        menuIcons.forEach(icon => { // Cyklus pre ikony v bočnom menu
+            icon.src = icon.getAttribute('data-light-src');
+        });
+    } else {
+        themeIcon.src = themeIcon.getAttribute('data-dark');
+        erbeckoLogo.src = erbeckoLogo.getAttribute('data-dark');
+
+        contactIcons.forEach(icon => {
+            icon.src = icon.getAttribute('data-dark');
+        });
+
+        buttonIcons.forEach(icon => {
+            icon.src = icon.getAttribute('data-dark-src');
+        });
+        
+        menuIcons.forEach(icon => { // Cyklus pre ikony v bočnom menu
+            icon.src = icon.getAttribute('data-dark-src');
+        });
+    }
+});
+</script>
+
+</body>
+
+<footer>
+    <p style="color: white; text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+        © 2025 Erbecko Digital Marketing. All rights reserved.
+    </p>
+</footer>
+</html>
